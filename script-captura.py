@@ -11,7 +11,7 @@ db = mysql.connector.connection.MySQLConnection(
     host="localhost",
     port=3306,
     user="root",
-    passwd="Felix2006!", # falta add a senha do bd aqui
+    passwd="", # falta add a senha do bd aqui
     database="lowLatency"
 )
 
