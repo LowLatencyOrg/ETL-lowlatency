@@ -51,9 +51,11 @@ def menuCaptura(fk_servidor):
 
                 delta_tempo = tempo_t2 - tempo_t1
                 if delta_tempo > 0 and iops_t1 and iops_t2:
-                    ops_leitura = iops_t2.read_count - iops_t1.read_count
-                    ops_escrita = iops_t2.write_count - iops_t1.write_count
-                    iops_total = (ops_leitura + ops_escrita) / delta_tempo
+                    bytes_leitura = iops_t2.read_bytes - iops_t1.read_bytes
+                    bytes_escrita = iops_t2.write_bytes - iops_t1.write_bytes
+
+                    mb_total = (bytes_leitura + bytes_escrita) / (1024 * 1024)
+                    iops_total = mb_total / delta_tempo
                 else:
                     iops_total = 0
 
@@ -151,8 +153,8 @@ def menuCaptura(fk_servidor):
 
                     comando_sql = """
                         INSERT INTO leitura 
-                        (fk_servidor, fk_componente, fk_metrica, valor, fk_unidade_medida, fk_alerta,dia_hora) 
-                        VALUES (%s, %s, %s, %s, %s, %s, NOW())"""
+                        (fk_servidor, fk_componente, fk_metrica, valor, fk_unidade_medida,dia_hora, fk_alerta) 
+                        VALUES (%s, %s, %s, %s, %s, NOW(), %s)"""
                     
                                     
                     valores = (fk_servidor, fk_componente, fk_metrica, valor, fk_unidade_medida, alerta)
