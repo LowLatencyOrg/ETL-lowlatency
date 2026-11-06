@@ -8,10 +8,10 @@ from mysql.connector import connection
 # MEMÓRIA RAM: Uso da memória ram; Swap da ram; 
 
 db = connection.MySQLConnection(
-    host="localhost",
+    host="44.206.205.13",
     port=3306,
-    user="root",
-    passwd="", # falta add a senha do bd aqui
+    user="script_python",
+    passwd="Sptech#2026",
     database="lowLatency"
 )
 
