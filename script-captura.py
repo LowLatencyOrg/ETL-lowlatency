@@ -77,7 +77,7 @@ def registrar_e_enviar_slack(
         print(f"[ERRO SLACK] Falha ao enviar para o Slack (registro salvo no MySQL): {erro}")
 
 db = connection.MySQLConnection(
-    host="127.0.0.1",
+    host="52.201.30.147",
     port=3306,
     user="script_python",
     passwd="Sptech#2026",
