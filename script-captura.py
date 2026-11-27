@@ -162,10 +162,10 @@ def buscar_limites_servidor(cursor, server_id: int) -> dict[int, tuple[float, fl
 
 def menuCaptura(fk_servidor, fk_empresa=1):
     db_local = connection.MySQLConnection(
-        host="127.0.0.1",
+        host="44.206.205.13",
         port=3306,
-        user="root",
-        passwd="",
+        user="script_python",
+        passwd="Sptech#2026",
         database="lowLatency"
     )
     cursor_local = db_local.cursor()
